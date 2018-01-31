@@ -6,7 +6,22 @@ public class AuthorNameNormalizer {
         if (isMononym(parts))
             return name;
         return lastName(parts) + ", " +
-               firstName(parts);
+               firstName(parts) +
+               middleInitial(parts);
+    }
+
+    private String middleInitial(String[] parts) {
+        if (hasNoMiddleName(parts))
+            return "";
+        return " " + initial(parts[1]);
+    }
+
+    private boolean hasNoMiddleName(String[] parts) {
+        return parts.length <= 2;
+    }
+
+    private String initial(String part) {
+        return part.charAt(0) + ".";
     }
 
     private String[] parts(String name) {
@@ -18,7 +33,7 @@ public class AuthorNameNormalizer {
     }
 
     private String lastName(String[] parts) {
-        return parts[1];
+        return parts[parts.length - 1];
     }
 
     private boolean isMononym(String[] parts) {

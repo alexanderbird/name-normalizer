@@ -4,13 +4,35 @@ import java.util.Arrays;
 import java.util.stream.Collectors;
 
 public class AuthorNameNormalizer {
-    public String normalize(String name) {
+    public String normalize(String fullName) {
+        throwsWhenContainsTooManyCommas(fullName);
+        String name = removeSuffix(fullName);
         String[] parts = parts(name);
         if (isMononym(parts))
             return name;
         return lastName(parts) + ", " +
                firstName(parts) +
-               middleInitials(parts);
+               middleInitials(parts) +
+               suffix(fullName);
+    }
+
+    private void throwsWhenContainsTooManyCommas(String fullName) {
+        if (fullName.chars().filter(c -> c == ',').count() > 1)
+            throw new IllegalArgumentException();
+    }
+
+    private String removeSuffix(String fullName) {
+        int i = fullName.indexOf(',');
+        if (i == -1)
+            return fullName;
+        return fullName.substring(0, i);
+    }
+
+    private String suffix(String fullName) {
+        int i = fullName.indexOf(',');
+        if (i == -1)
+            return "";
+        return fullName.substring(i);
     }
 
     private String middleInitials(String[] parts) {

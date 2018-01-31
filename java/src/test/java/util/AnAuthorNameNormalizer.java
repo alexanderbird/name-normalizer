@@ -63,14 +63,12 @@ public class AnAuthorNameNormalizer {
                 is(equalTo("Louis-Dreyfus, Julia S. E.")));
     }
 
-    @Disabled
     @Test
     public void appendsSuffixesToEnd() {
         assertThat(normalizer.normalize("Martin Luther King, Jr."),
                 is(equalTo("King, Martin L., Jr.")));
     }
 
-    @Disabled
     @Test
     public void throwsWhenNameContainsTwoCommas() {
         assertThrows(IllegalArgumentException.class, () -> {

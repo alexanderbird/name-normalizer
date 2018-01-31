@@ -2,11 +2,15 @@ package util;
 
 public class AuthorNameNormalizer {
     public String normalize(String name) {
-        String[] parts = name.split(" ");
+        String[] parts = parts(name);
         if (isMononym(parts))
             return name;
         return lastName(parts) + ", " +
                firstName(parts);
+    }
+
+    private String[] parts(String name) {
+        return name.trim().split(" ");
     }
 
     private String firstName(String[] parts) {

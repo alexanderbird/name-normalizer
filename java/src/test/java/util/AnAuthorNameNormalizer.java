@@ -51,14 +51,12 @@ public class AnAuthorNameNormalizer {
                 is(equalTo("Thoreau, Henry D.")));
     }
 
-    @Disabled
     @Test
     public void doesNotInitializeOneLetterMiddleName() {
         assertThat(normalizer.normalize("Harry S Truman"),
                 is(equalTo("Truman, Harry S")));
     }
 
-    @Disabled
     @Test
     public void initializesEachOfMultipleMiddleNames() {
         assertThat(normalizer.normalize("Julia Scarlett Elizabeth Louis-Dreyfus"),

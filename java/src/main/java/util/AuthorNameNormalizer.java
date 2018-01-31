@@ -1,5 +1,8 @@
 package util;
 
+import java.util.Arrays;
+import java.util.stream.Collectors;
+
 public class AuthorNameNormalizer {
     public String normalize(String name) {
         String[] parts = parts(name);
@@ -7,21 +10,28 @@ public class AuthorNameNormalizer {
             return name;
         return lastName(parts) + ", " +
                firstName(parts) +
-               middleInitial(parts);
+               middleInitials(parts);
     }
 
-    private String middleInitial(String[] parts) {
+    private String middleInitials(String[] parts) {
         if (hasNoMiddleName(parts))
             return "";
-        return " " + initial(parts[1]);
+
+        return " " + Arrays.stream(parts)
+                .skip(1)
+                .limit(parts.length - 2)
+                .map(this::initial)
+                .collect(Collectors.joining(" "));
     }
 
     private boolean hasNoMiddleName(String[] parts) {
         return parts.length <= 2;
     }
 
-    private String initial(String part) {
-        return part.charAt(0) + ".";
+    private String initial(String name) {
+        if (name.length() == 1)
+            return name;
+        return name.charAt(0) + ".";
     }
 
     private String[] parts(String name) {

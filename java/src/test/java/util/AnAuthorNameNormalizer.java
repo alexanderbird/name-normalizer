@@ -33,7 +33,6 @@ public class AnAuthorNameNormalizer {
                 is(equalTo("Plato")));
     }
 
-    @Disabled
     @Test
     public void swapsFirstAndLastNames() {
       assertThat(normalizer.normalize("Haruki Murakami"),

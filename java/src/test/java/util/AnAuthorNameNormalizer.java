@@ -75,4 +75,16 @@ public class AnAuthorNameNormalizer {
             normalizer.normalize("Thurston, Howell, III");
         });
     }
+
+    @Test
+    public void retainsSuffixForMonoym() {
+        assertThat(normalizer.normalize("Madonna, Jr."),
+                is(equalTo("Madonna, Jr.")));
+    }
+
+    @Test
+    public void trimsWhitespaceForNameWithSuffix() {
+        assertThat(normalizer.normalize(" Madonna, Jr. "),
+                is(equalTo("Madonna, Jr.")));
+    }
 }

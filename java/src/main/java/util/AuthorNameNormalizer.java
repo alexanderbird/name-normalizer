@@ -6,14 +6,14 @@ import java.util.stream.Collectors;
 public class AuthorNameNormalizer {
     public String normalize(String fullName) {
         throwsWhenContainsTooManyCommas(fullName);
-        String name = removeSuffix(fullName);
-        String[] parts = parts(name);
+        String trimmedName = fullName.trim();
+        String[] parts = parts(removeSuffix(trimmedName));
         if (isMononym(parts))
-            return name;
+            return trimmedName;
         return lastName(parts) + ", " +
                firstName(parts) +
                middleInitials(parts) +
-               suffix(fullName);
+               suffix(trimmedName);
     }
 
     private void throwsWhenContainsTooManyCommas(String fullName) {
@@ -57,7 +57,7 @@ public class AuthorNameNormalizer {
     }
 
     private String[] parts(String name) {
-        return name.trim().split(" ");
+        return name.split(" ");
     }
 
     private String firstName(String[] parts) {

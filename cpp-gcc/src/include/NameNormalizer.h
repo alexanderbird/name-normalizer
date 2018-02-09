@@ -23,12 +23,9 @@ namespace name_util {
   std::string initial(const std::string& name) {
     if (1 == name.length()) return name;
 
-    return name[0] + ".";
-    /*
     std::stringstream s;
     s << name[0] << ".";
     return s.str();
-    */
   }
 
   std::string middleInitials(const std::vector<std::string>& parts) {

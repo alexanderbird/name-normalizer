@@ -1,4 +1,4 @@
-import { WordJoiner } from './word-joiner';
+import { WordJoiner } from './serialization-helpers/word-joiner';
 /* See interface Names in ./names.js */
 
 export function serializeNamesLastNameFirst(names /* type Names */) {

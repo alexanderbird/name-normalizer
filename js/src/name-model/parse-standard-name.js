@@ -1,9 +1,7 @@
 /* See interface Names in ./names.js */
-import { validateStandardName } from '.';
 
 // Returns type Names
 export function parseStandardName(nameString) {
-  validateStandardName(nameString);
   const { suffix, rest: nameParts } = getSuffix(nameString);
   return {
     suffix,

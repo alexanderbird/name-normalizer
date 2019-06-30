@@ -10,6 +10,10 @@ function shortenMiddleName(middleName) {
     return middleName.length === 1 ? middleName : middleName[0] + '.';
   }
 
+function shortenMiddleNames(middleNames) {
+  return middleNames.map(shortenMiddleName).join(' ');
+}
+
 
 export class AlphabeticalNameSerializer {
   constructor(names /* type Names */) {
@@ -19,12 +23,12 @@ export class AlphabeticalNameSerializer {
   serialize() {
     return new WordJoiner(this._names.last)
       .comma(this._names.first)
-      .space(this._getMiddleNames())
+      .space(shortenMiddleNames(this._names.middle))
       .comma(this._names.suffix)
       .toString();
   }
 
   _getMiddleNames() {
-    return this._names.middle.map(shortenMiddleName).join(' ');
+    return ;
   }
 }

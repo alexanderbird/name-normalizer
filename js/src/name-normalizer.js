@@ -50,10 +50,3 @@ class Joiner {
     return this.value;
   }
 }
-
-function join(left, separator, right) {
-  if(!left && !right) return '';
-  if(!left) return right;
-  if(!right) return left;
-  return [left, separator, right].join('');
-}

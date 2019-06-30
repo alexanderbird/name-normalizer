@@ -5,6 +5,12 @@ export function serializeNamesLastNameFirst(names /* type Names */) {
   return new AlphabeticalNameSerializer(names).serialize();
 }
 
+
+function shortenMiddleName(middleName) {
+    return middleName.length === 1 ? middleName : middleName[0] + '.';
+  }
+
+
 export class AlphabeticalNameSerializer {
   constructor(names /* type Names */) {
     this._names = names;
@@ -18,11 +24,7 @@ export class AlphabeticalNameSerializer {
       .toString();
   }
 
-  static _shortenMiddleName(middleName) {
-    return middleName.length === 1 ? middleName : middleName[0] + '.';
-  }
-
   _getMiddleNames() {
-    return this._names.middle.map(AlphabeticalNameSerializer._shortenMiddleName).join(' ');
+    return this._names.middle.map(shortenMiddleName).join(' ');
   }
 }

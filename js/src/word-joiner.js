@@ -4,8 +4,8 @@ export class WordJoiner {
   }
 
   join(separator, next) {
-    const defaultValue = this.value || next || '';
-    if(!next || !this.value) return new WordJoiner(defaultValue)
+    if(!next) return new WordJoiner(this.value || '');
+    if(!this.value) return new WordJoiner(next || '');
     return new WordJoiner([this.value, separator, next].join(''));
   }
 

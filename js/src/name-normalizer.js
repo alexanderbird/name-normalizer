@@ -1,4 +1,8 @@
-import { parseStandardName, validateStandardName, serializeNamesLastNameFirst } from './name-model';
+import {
+  validateStandardName,
+  parseStandardName,
+  serializeNamesLastNameFirst
+} from './name-model';
 
 export function normalize(name) {
   validateStandardName(name);

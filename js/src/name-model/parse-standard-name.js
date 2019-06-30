@@ -1,10 +1,11 @@
 /* See interface Names in ./names.js */
 
+// Returns type Names
 export function parseStandardName(nameString) {
   const cleanName = nameString.trim();
   const { rest, suffix } = getSuffix(cleanName);
   const { first, middle, last } = getNames(rest);
-  return { first, middle, last, suffix }; /* type Names */
+  return { first, middle, last, suffix };
 }
 
 function getSuffix(name) {

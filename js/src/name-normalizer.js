@@ -32,6 +32,12 @@ class Joiner {
     this.value = value;
   }
 
+  join(next, separator) {
+    const defaultValue = this.value || next || '';
+    if(!next || !this.value) return new Joiner(defaultValue)
+    return new Joiner([left, separator, right].join(' '));
+  }
+
   comma(next) {
     return new Joiner(join(this.value, ', ', next));
   }

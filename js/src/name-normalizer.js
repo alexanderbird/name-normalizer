@@ -9,6 +9,5 @@ function parseNames(nameString) {
 }
 
 function join(left, separator, right) {
-  if(!left) return right;
-  return [left, separator, right].join('');
+  return left ? [left, separator, right].join('') : right;
 }

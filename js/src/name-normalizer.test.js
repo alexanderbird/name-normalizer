@@ -21,7 +21,7 @@ describe('a name normalizer', () => {
       expect(normalize("Henry David Thoreau")).toEqual("Thoreau, Henry D.");
   });
 
-  xit('does not initialize one letter middle name', () => {
+  it('does not initialize one letter middle name', () => {
       expect(normalize("Harry S Truman")).toEqual("Truman, Harry S");
   });
 

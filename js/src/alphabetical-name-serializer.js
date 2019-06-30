@@ -4,21 +4,19 @@ function shortenMiddleName(middleName) {
   return middleName.length === 1 ? middleName : middleName[0] + '.';
 }
 
-function shortenMiddleNames(middleNames) {
-  return middleNames.map(shortenMiddleName).join(' ');
-}
-
 export class AlphabeticalNameSerializer {
   constructor(names) {
     this.names = names;
   }
 
+  getMiddleNames() {
+    return this.names.middle.map(shortenMiddleName).join(' ');
+  }
+
   serialize() {
-    const { first, middle, last, suffix } = this.names;
-    const middleText = shortenMiddleNames(middle);
     return new WordJoiner(this.names.last)
       .comma(this.names.first)
-      .space(middleText)
+      .space(this.getMiddleNames())
       .comma(this.names.suffix)
       .toString();
   }

@@ -5,7 +5,7 @@ describe('a name normalizer', () => {
     expect(normalize("")).toEqual("");
   });
 
-  xit('returns single word name', () => {
+  it('returns single word name', () => {
     expect(normalize("Plato")).toEqual("Plato");
   });
 

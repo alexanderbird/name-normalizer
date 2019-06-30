@@ -10,7 +10,7 @@ export function parseStandardName(nameString) {
 
 function getSuffix(name) {
   const [rest, suffix, otherCrap] = name.split(', ');
-  if(otherCrap) throw new Error('Too many commas');
+  if(otherCrap) throw new Error('Cannot get suffix: too many commas');
   return { rest, suffix }
 }
 

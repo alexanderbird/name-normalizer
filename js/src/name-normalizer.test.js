@@ -25,7 +25,7 @@ describe('a name normalizer', () => {
       expect(normalize("Harry S Truman")).toEqual("Truman, Harry S");
   });
 
-  xit('initializes each of multiple middle names', () => {
+  it('initializes each of multiple middle names', () => {
       expect(normalize("Julia Scarlett Elizabeth Louis-Dreyfus")).toEqual("Louis-Dreyfus, Julia S. E.");
   });
 

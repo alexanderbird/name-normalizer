@@ -18,7 +18,7 @@ function shortenMiddleName(middleName) {
 }
 
 function shortenMiddleNames(middleNames) {
-  return middleNames.map(shortenMiddleName)[0];
+  return middleNames.map(shortenMiddleName).join(' ');
 }
 
 function join(left, separator, right) {

@@ -27,8 +27,4 @@ export class AlphabeticalNameSerializer {
       .comma(this._names.suffix)
       .toString();
   }
-
-  _getMiddleNames() {
-    return ;
-  }
 }

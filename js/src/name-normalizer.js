@@ -43,7 +43,7 @@ class Joiner {
   }
 
   space(next) {
-    return new Joiner(join(this.value, ' ', next));
+    return this.join(' ', next);
   }
 
   toString() {

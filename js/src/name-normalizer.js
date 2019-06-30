@@ -1,7 +1,7 @@
 export const normalize = name => {
   const { first, middle, last, suffix } = parseNames(name);
   const middleText = shortenMiddleNames(middle);
-  return new Joiner(last)
+  return new WordJoiner(last)
     .comma(first)
     .space(middleText)
     .comma(suffix)
@@ -27,15 +27,15 @@ function shortenMiddleNames(middleNames) {
   return middleNames.map(shortenMiddleName).join(' ');
 }
 
-class Joiner {
+class WordJoiner {
   constructor(value = '') {
     this.value = value;
   }
 
   join(separator, next) {
     const defaultValue = this.value || next || '';
-    if(!next || !this.value) return new Joiner(defaultValue)
-    return new Joiner([this.value, separator, next].join(''));
+    if(!next || !this.value) return new WordJoiner(defaultValue)
+    return new WordJoiner([this.value, separator, next].join(''));
   }
 
   comma(next) {

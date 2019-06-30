@@ -35,7 +35,7 @@ class Joiner {
   join(next, separator) {
     const defaultValue = this.value || next || '';
     if(!next || !this.value) return new Joiner(defaultValue)
-    return new Joiner([left, separator, right].join(' '));
+    return new Joiner([this.value, separator, next].join(''));
   }
 
   comma(next) {

@@ -1,5 +1,5 @@
 /* See interface Names in ./names.js */
-import { validateStandardName } from './validate-standard-name';
+import { validateStandardName } from '.';
 
 // Returns type Names
 export function parseStandardName(nameString) {

@@ -4,8 +4,10 @@
 export function parseStandardName(nameString) {
   const cleanName = nameString.trim();
   const { suffix, rest: nameParts } = getSuffix(cleanName);
-  const { first, middle, last } = getNames(nameParts);
-  return { first, middle, last, suffix };
+  return {
+    suffix,
+    ...getNames(nameParts)
+  };
 }
 
 function getSuffix(name) {

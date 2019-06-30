@@ -5,12 +5,12 @@ export class AlphabeticalNameSerializer {
     this._names = names;
   }
 
-  _shortenMiddleName(middleName) {
+  static _shortenMiddleName(middleName) {
     return middleName.length === 1 ? middleName : middleName[0] + '.';
   }
 
   _getMiddleNames() {
-    return this._names.middle.map(n => this._shortenMiddleName(n)).join(' ');
+    return this._names.middle.map(AlphabeticalNameSerializer._shortenMiddleName).join(' ');
   }
 
   serialize() {

@@ -9,7 +9,7 @@ describe('a name normalizer', () => {
     expect(normalize("Plato")).toEqual("Plato");
   });
 
-  xit('swaps first and last names', () => {
+  it('swaps first and last names', () => {
       expect(normalize("Haruki Murakami")).toEqual("Murakami, Haruki");
   });
 

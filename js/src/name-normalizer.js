@@ -1,3 +1,4 @@
 export const normalize = name => {
-  return name;
+  const [first, last] = name.split(' ');
+  return last ? [last, first].join(', ') : first;
 }

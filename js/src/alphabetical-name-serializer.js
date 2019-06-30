@@ -10,7 +10,7 @@ export class AlphabeticalNameSerializer {
   }
 
   _getMiddleNames() {
-    return this._names.middle.map(this._shortenMiddleName).join(' ');
+    return this._names.middle.map(n => this._shortenMiddleName(n)).join(' ');
   }
 
   serialize() {

@@ -1,7 +1,8 @@
 import { WordJoiner } from './word-joiner';
+/* See interface Names in ./names.js */
 
 export class AlphabeticalNameSerializer {
-  constructor(names) {
+  constructor(names /* type Names */) {
     this._names = names;
   }
 

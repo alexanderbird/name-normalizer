@@ -1,3 +1,5 @@
+/* See interface Names in ./names.js */
+
 export function standardNameParser(nameString) {
   const cleanName = nameString.trim();
   const [mainNames, suffix, otherCrap] = cleanName.split(', ');
@@ -6,6 +8,6 @@ export function standardNameParser(nameString) {
   const first = nameParts.shift();
   const last = nameParts.pop();
   const middle = nameParts;
-  return { first, middle, last, suffix }
+  return { first, middle, last, suffix }; /* type Names */
 }
 

@@ -1,7 +1,7 @@
 import { WordJoiner } from './word-joiner';
 /* See interface Names in ./names.js */
 
-export function lastNameFirstNameSerializer(names /* type Names */) {
+export function serializeNamesLastNameFirst(names /* type Names */) {
   return new AlphabeticalNameSerializer(names).serialize();
 }
 

@@ -1,16 +1,16 @@
 import { WordJoiner } from './word-joiner';
 
-function shortenMiddleName(middleName) {
-  return middleName.length === 1 ? middleName : middleName[0] + '.';
-}
-
 export class AlphabeticalNameSerializer {
   constructor(names) {
     this._names = names;
   }
 
+  _shortenMiddleName(middleName) {
+    return middleName.length === 1 ? middleName : middleName[0] + '.';
+  }
+
   _getMiddleNames() {
-    return this._names.middle.map(shortenMiddleName).join(' ');
+    return this._names.middle.map(this._shortenMiddleName).join(' ');
   }
 
   serialize() {

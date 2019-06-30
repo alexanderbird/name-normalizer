@@ -8,7 +8,8 @@ export const normalize = name => {
 
 function parseNames(nameString) {
   const cleanName = nameString.trim();
-  const [mainNames, suffix] = cleanName.split(', ');
+  const [mainNames, suffix, otherCrap] = cleanName.split(', ');
+  if(otherCrap) throw new Error('Too many commas');
   const nameParts = mainNames.split(' ');
   const first = nameParts.shift();
   const last = nameParts.pop();

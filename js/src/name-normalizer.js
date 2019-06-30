@@ -4,7 +4,8 @@ export const normalize = name => {
 }
 
 function parseNames(nameString) {
-  const [first, last] = nameString.trim().split(' ');
+  const nameParts = nameString.trim().split(' ');
+  const [first, last] = nameParts;
   return { first, last }
 }
 

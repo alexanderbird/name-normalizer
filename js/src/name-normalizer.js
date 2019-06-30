@@ -25,6 +25,14 @@ function shortenMiddleNames(middleNames) {
   return middleNames.map(shortenMiddleName).join(' ');
 }
 
+function multiJoin(left, separator, ...rest) {
+  if(separator && rest.length) {
+    return join(left, separator, multiJoin(...rest));
+  } else {
+    return left;
+  }
+}
+
 function join(left, separator, right) {
   if(!left && !right) return '';
   if(!left) return right;

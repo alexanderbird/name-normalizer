@@ -3,8 +3,7 @@
 // Returns type Names
 export function parseStandardName(nameString) {
   validateName(nameString);
-  const cleanName = nameString.trim();
-  const { suffix, rest: nameParts } = getSuffix(cleanName);
+  const { suffix, rest: nameParts } = getSuffix(nameString);
   return {
     suffix,
     ...getNames(nameParts)

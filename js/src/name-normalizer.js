@@ -1,7 +1,7 @@
 export const normalize = name => {
   const { first, middle, last, suffix } = parseNames(name);
   const middleText = shortenMiddleNames(middle);
-  return multiJoin(last, ', ', first, ' ', middleText, ', ', suffix);
+  return new Joiner(last).comma(first).space(middleText).comma(suffix).toString();
 }
 
 function parseNames(nameString) {

@@ -13,11 +13,16 @@ function parseNames(nameString) {
   return { first, middle, last }
 }
 
+function shortenMiddleName(middleName) {
+  return middleName.length === 1 ? middleName : middleName[0] + '.';
+}
+
 function shortenMiddleNames(middleNames) {
-  return middleNames.length ? middleNames[0][0] + '.' : '';
+  return middleNames.map(shortenMiddleName)[0];
 }
 
 function join(left, separator, right) {
+  if(!left && !right) return '';
   if(!left) return right;
   if(!right) return left;
   return [left, separator, right].join('');

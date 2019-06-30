@@ -1,6 +1,6 @@
-import { standardNameParser, serializeNamesLastNameFirst } from './name-model';
+import { parseStandardName, serializeNamesLastNameFirst } from './name-model';
 
 export function normalize(name) {
-  const names = standardNameParser(name)
+  const names = parseStandardName(name)
   return serializeNamesLastNameFirst(names);
 }

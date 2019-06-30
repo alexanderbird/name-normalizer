@@ -1,6 +1,6 @@
 /* See interface Names in ./names.js */
 
-export function standardNameParser(nameString) {
+export function parseStandardName(nameString) {
   const cleanName = nameString.trim();
   const [mainNames, suffix, otherCrap] = cleanName.split(', ');
   if(otherCrap) throw new Error('Too many commas');

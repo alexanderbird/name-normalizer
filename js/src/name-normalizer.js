@@ -23,6 +23,24 @@ function shortenMiddleNames(middleNames) {
   return middleNames.map(shortenMiddleName).join(' ');
 }
 
+class Joiner {
+  constructor(value = '') {
+    this.value = value;
+  }
+
+  comma(next) {
+    return new Joiner(join(this.value, ', ', next));
+  }
+
+  space(next) {
+    return new Joiner(join(this.value, ' ', next));
+  }
+
+  toString() {
+    return this.value;
+  }
+}
+
 function multiJoin(left, separator, ...rest) {
   if(separator && rest.length) {
     return join(left, separator, multiJoin(...rest));

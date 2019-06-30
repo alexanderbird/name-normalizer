@@ -1,7 +1,11 @@
 export const normalize = name => {
   const { first, middle, last, suffix } = parseNames(name);
   const middleText = shortenMiddleNames(middle);
-  return new Joiner(last).comma(first).space(middleText).comma(suffix).toString();
+  return new Joiner(last)
+    .comma(first)
+    .space(middleText)
+    .comma(suffix)
+    .toString();
 }
 
 function parseNames(nameString) {
@@ -38,14 +42,6 @@ class Joiner {
 
   toString() {
     return this.value;
-  }
-}
-
-function multiJoin(left, separator, ...rest) {
-  if(separator && rest.length) {
-    return join(left, separator, multiJoin(...rest));
-  } else {
-    return left;
   }
 }
 

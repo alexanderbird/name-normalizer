@@ -6,18 +6,18 @@ function shortenMiddleName(middleName) {
 
 export class AlphabeticalNameSerializer {
   constructor(names) {
-    this.names = names;
+    this._names = names;
   }
 
-  getMiddleNames() {
-    return this.names.middle.map(shortenMiddleName).join(' ');
+  _getMiddleNames() {
+    return this._names.middle.map(shortenMiddleName).join(' ');
   }
 
   serialize() {
-    return new WordJoiner(this.names.last)
-      .comma(this.names.first)
-      .space(this.getMiddleNames())
-      .comma(this.names.suffix)
+    return new WordJoiner(this._names.last)
+      .comma(this._names.first)
+      .space(this._getMiddleNames())
+      .comma(this._names.suffix)
       .toString();
   }
 }

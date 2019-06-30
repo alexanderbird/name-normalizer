@@ -10,7 +10,7 @@ export function parseStandardName(nameString) {
 }
 
 function getSuffix(name) {
-  const [rest, suffix, otherCrap] = name.split(', ');
+  const [rest, suffix] = name.split(', ');
   return { rest, suffix }
 }
 

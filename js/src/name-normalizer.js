@@ -1,16 +1,19 @@
 export const normalize = name => {
-  const { first, middle, last } = parseNames(name);
+  const { first, middle, last, suffix } = parseNames(name);
   const middleText = shortenMiddleNames(middle);
   return join(last, ', ', 
-    join(first, ' ', middleText));
+    join(first, ' ', 
+    join(middleText, ', ', suffix)));
 }
 
 function parseNames(nameString) {
-  const nameParts = nameString.trim().split(' ');
+  const cleanName = nameString.trim();
+  const [mainNames, suffix] = cleanName.split(', ');
+  const nameParts = mainNames.split(' ');
   const first = nameParts.shift();
   const last = nameParts.pop();
   const middle = nameParts;
-  return { first, middle, last }
+  return { first, middle, last, suffix }
 }
 
 function shortenMiddleName(middleName) {

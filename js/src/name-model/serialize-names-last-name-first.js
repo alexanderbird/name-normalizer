@@ -11,7 +11,7 @@ export function serializeNamesLastNameFirst(names /* type Names */) {
 
 
 function shortenMiddleName(middleName) {
-  return middleName.length === 1 ? middleName : middleName[0] + '.';
+  return middleName.replace(/^(.).+$/, '$1.');
 }
 
 function shortenMiddleNames(middleNames) {

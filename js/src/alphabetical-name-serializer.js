@@ -21,10 +21,11 @@ export class AlphabeticalNameSerializer {
   }
 
   serialize() {
-    return new WordJoiner(this._names.last)
-      .comma(this._names.first)
-      .space(shortenMiddleNames(this._names.middle))
-      .comma(this._names.suffix)
+    const names = this._names;
+    return new WordJoiner(names.last)
+      .comma(names.first)
+      .space(shortenMiddleNames(names.middle))
+      .comma(names.suffix)
       .toString();
   }
 }

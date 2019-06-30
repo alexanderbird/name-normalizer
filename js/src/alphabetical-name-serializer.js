@@ -16,10 +16,10 @@ export class AlphabeticalNameSerializer {
   serialize() {
     const { first, middle, last, suffix } = this.names;
     const middleText = shortenMiddleNames(middle);
-    return new WordJoiner(last)
-      .comma(first)
+    return new WordJoiner(this.names.last)
+      .comma(this.names.first)
       .space(middleText)
-      .comma(suffix)
+      .comma(this.names.suffix)
       .toString();
   }
 }

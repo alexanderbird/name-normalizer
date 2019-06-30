@@ -2,6 +2,7 @@
 
 // Returns type Names
 export function parseStandardName(nameString) {
+  validateName(nameString);
   const cleanName = nameString.trim();
   const { suffix, rest: nameParts } = getSuffix(cleanName);
   return {
@@ -10,9 +11,14 @@ export function parseStandardName(nameString) {
   };
 }
 
+function validateName(nameString) {
+  if(nameString.match(/,.*,/)) {
+    throw new Error('Too many commas');
+  }
+}
+
 function getSuffix(name) {
   const [rest, suffix, otherCrap] = name.split(', ');
-  if(otherCrap) throw new Error('Cannot get suffix: too many commas');
   return { rest, suffix }
 }
 

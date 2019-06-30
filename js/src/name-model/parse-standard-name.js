@@ -1,19 +1,14 @@
 /* See interface Names in ./names.js */
+import { validateStandardName } from './validate-standard-name';
 
 // Returns type Names
 export function parseStandardName(nameString) {
-  validateName(nameString);
+  validateStandardName(nameString);
   const { suffix, rest: nameParts } = getSuffix(nameString);
   return {
     suffix,
     ...getNames(nameParts)
   };
-}
-
-function validateName(nameString) {
-  if(nameString.match(/,.*,/)) {
-    throw new Error('Too many commas');
-  }
 }
 
 function getSuffix(name) {
